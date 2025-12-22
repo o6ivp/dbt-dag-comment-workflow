@@ -19,6 +19,10 @@ on:
         description: 'SHA of the head commit of the PR'
         type: string
         required: true
+      token:
+        description: 'GITHUB_TOKEN for checking out the reusable workflow repository'
+        type: string
+        required: true
 
 jobs:
   dag-comment:
@@ -69,6 +73,7 @@ jobs:
         with:
           repository: o6ivp/dbt-dag-comment-workflow
           path: ./.github/reusable_workflow_source
+          token: ${{ inputs.token }}
 
       - name: Generate dbt manifest
         if: steps.changed-files.outputs.count != '0'
