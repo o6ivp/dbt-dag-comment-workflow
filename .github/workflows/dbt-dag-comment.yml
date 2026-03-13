@@ -74,7 +74,7 @@ jobs:
         with:
           repository: o6ivp/dbt-dag-comment-workflow
           path: ./.github/reusable_workflow_source
-          token: ${{ inputs.token }}
+          token: ${{ inputs.token || github.token }}
 
       - name: Generate dbt manifest
         if: steps.changed-files.outputs.count != '0'
