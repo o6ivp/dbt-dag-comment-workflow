@@ -22,7 +22,8 @@ on:
       token:
         description: 'GITHUB_TOKEN for checking out the reusable workflow repository'
         type: string
-        required: true
+        required: false
+        default: ''
 
 jobs:
   dag-comment:
